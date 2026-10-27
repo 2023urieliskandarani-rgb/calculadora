@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Científica Estándar</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="calculator-body">
+    <!-- Encabezado con marca e indicador -->
+    <div class="calc-header">
+      <span class="model-name">CASIO-STYLE FX</span>
+      <span class="mode-tag" id="modeTag">DEG</span>
+    </div>
+
+    <!-- Pantalla -->
+    <div class="display-box">
+      <div class="history-line" id="history"></div>
+      <div class="main-line" id="display">0</div>
+    </div>
+
+    <!-- Teclado en orden estándar (Funciones arriba / Números abajo) -->
+    <div class="keypad-grid">
+      <!-- Fila 1: Control y Modos -->
+      <button class="btn btn-mode" onclick="toggleDegRad()" id="degBtn">DEG/RAD</button>
+      <button class="btn btn-func" onclick="appendFunc('(')">(</button>
+      <button class="btn btn-func" onclick="appendFunc(')')">)</button>
+      <button class="btn btn-action" onclick="deleteLast()">DEL</button>
+      <button class="btn btn-clear" onclick="clearAll()">AC</button>
+
+      <!-- Fila 2: Trigonométricas -->
+      <button class="btn btn-func" onclick="appendFunc('sin(')">sin</button>
+      <button class="btn btn-func" onclick="appendFunc('cos(')">cos</button>
+      <button class="btn btn-func" onclick="appendFunc('tan(')">tan</button>
+      <button class="btn btn-func" onclick="appendValue('π')">π</button>
+      <button class="btn btn-func" onclick="appendValue('e')">e</button>
+
+      <!-- Fila 3: Potencias y Logaritmos -->
+      <button class="btn btn-func" onclick="appendFunc('log(')">log</button>
+      <button class="btn btn-func" onclick="appendFunc('ln(')">ln</button>
+      <button class="btn btn-func" onclick="appendOp('^2')">x²</button>
+      <button class="btn btn-func" onclick="appendOp('^')">xⁿ</button>
+      <button class="btn btn-func" onclick="appendFunc('sqrt(')">√</button>
+
+      <!-- Fila 4: Numérico 7, 8, 9 -->
+      <button class="btn btn-num" onclick="appendValue('7')">7</button>
+      <button class="btn btn-num" onclick="appendValue('8')">8</button>
+      <button class="btn btn-num" onclick="appendValue('9')">9</button>
+      <button class="btn btn-func" onclick="appendFunc('fact(')">n!</button>
+      <button class="btn btn-op" onclick="appendOp('÷')">÷</button>
+
+      <!-- Fila 5: Numérico 4, 5, 6 -->
+      <button class="btn btn-num" onclick="appendValue('4')">4</button>
+      <button class="btn btn-num" onclick="appendValue('5')">5</button>
+      <button class="btn btn-num" onclick="appendValue('6')">6</button>
+      <button class="btn btn-func" onclick="appendOp('%')">%</button>
+      <button class="btn btn-op" onclick="appendOp('×')">×</button>
+
+      <!-- Fila 6: Numérico 1, 2, 3 -->
+      <button class="btn btn-num" onclick="appendValue('1')">1</button>
+      <button class="btn btn-num" onclick="appendValue('2')">2</button>
+      <button class="btn btn-num" onclick="appendValue('3')">3</button>
+      <button class="btn btn-func" onclick="appendFunc('abs(')">|x|</button>
+      <button class="btn btn-op" onclick="appendOp('-')">-</button>
+
+      <!-- Fila 7: Numérico 0, punto, operadores base e igual -->
+      <button class="btn btn-num" onclick="appendValue('0')">0</button>
+      <button class="btn btn-num" onclick="appendValue('.')">.</button>
+      <button class="btn btn-num" onclick="toggleSign()">±</button>
+      <button class="btn btn-op" onclick="appendOp('+')">+</button>
+      <button class="btn btn-equals" onclick="calculate()">=</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
